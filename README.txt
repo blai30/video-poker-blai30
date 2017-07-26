@@ -1,17 +1,13 @@
 CSC220 Programming Project#4
 ============================
  
-Due Date: TBD
-
+Due Date: Saturday August 12th, 2017
+THERE WILL BE NO LATE SUBMISSIONS
 
 - Implement poker game program in package PJ4:
  
       Part I  (40%) Implement Decks class
       Part II (60%) Implement VideoPoker class
- 
-      Bonus   (30%) Add GUI, only after you have completed I & II
-                    Must complete by same due date.
-                    Submit both non-GUI and GUI versions
  
   See PJ4/PlayingCard.java and PJ4/VideoPoker.java for more info. 
  
