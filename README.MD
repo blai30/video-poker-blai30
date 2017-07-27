@@ -1,6 +1,6 @@
-- Student Name : 
+- Student Name : Brian Lai
 
-- Student ID:
+- Student ID: 916818167
 
 Due Date: Saturday August 12th, 2017
 THERE WILL BE NO LATE SUBMISSIONS
