@@ -12,4 +12,3 @@ Note:
 
 * if you copy a program from another students, you will get 0%
 
-
