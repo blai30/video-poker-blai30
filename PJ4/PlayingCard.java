@@ -150,6 +150,16 @@ class Decks {
         }
         // Deck
         for (int i = 0; i < this.numberDecks; i++) {
+            // Add jokers if withJokers is true
+            if (this.withJokers) {
+                try {
+                    Card jokerCard = new Card(0, 1);
+                    this.originalDecks.add(jokerCard);
+                    this.originalDecks.add(jokerCard);
+                } catch (PlayingCardException e) {
+                    e.printStackTrace();
+                }
+            }
             // Suit
             for (int j = 1; j <= 4; j++) {
                 // Rank
@@ -161,16 +171,6 @@ class Decks {
                     } catch (PlayingCardException e) {
                         e.printStackTrace();
                     }
-                }
-            }
-            // Add jokers if withJokers is true
-            if (this.withJokers) {
-                try {
-                    Card jokerCard = new Card(0, 1);
-                    this.originalDecks.add(jokerCard);
-                    this.originalDecks.add(jokerCard);
-                } catch (PlayingCardException e) {
-                    e.printStackTrace();
                 }
             }
         }
