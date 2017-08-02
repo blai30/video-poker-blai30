@@ -208,7 +208,7 @@ class Decks {
             throw new PlayingCardException("Not enough cards");
         }
         while (toDeal.size() < numberCards) {
-            toDeal.add(this.gameDecks.remove(0));
+            toDeal.add(0, this.gameDecks.remove(this.gameDecks.size()-1));
         }
         return toDeal;
     }
