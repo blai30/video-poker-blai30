@@ -203,7 +203,14 @@ class Decks {
     public List<Card> deal(int numberCards) throws PlayingCardException
     {
         // implement this method!
-        return null;
+        List<Card> toDeal = new ArrayList<Card>();
+        if (numberCards > this.gameDecks.size()) {
+            throw new PlayingCardException("Not enough cards");
+        }
+        while (toDeal.size() < numberCards) {
+            toDeal.add(this.gameDecks.remove(0));
+        }
+        return toDeal;
     }
 
     /**
