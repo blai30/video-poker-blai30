@@ -186,7 +186,7 @@ class Decks {
     public void shuffle()
     {
         // implement this method!
-        Collections.shuffle(gameDecks);
+        Collections.shuffle(this.gameDecks);
     }
 
     /**
@@ -212,6 +212,7 @@ class Decks {
     public void reset()
     {
         // implement this method!
+        this.gameDecks = new ArrayList<Card>(this.originalDecks);
 
     }
 
