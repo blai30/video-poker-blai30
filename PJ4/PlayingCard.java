@@ -154,6 +154,7 @@ class Decks {
     public void shuffle()
     {
         // implement this method!
+        Collections.shuffle(gameDecks);
     }
 
     /**
