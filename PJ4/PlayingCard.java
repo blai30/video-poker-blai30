@@ -168,11 +168,14 @@ class Decks {
                 try {
                     Card jokerCard = new Card(0, 1);
                     this.originalDecks.add(jokerCard);
+                    this.originalDecks.add(jokerCard);
                 } catch (PlayingCardException e) {
                     e.printStackTrace();
                 }
             }
         }
+        // Copy originalDecks to gameDecks
+        this.gameDecks = new ArrayList<Card>(this.originalDecks);
     }
 
 
