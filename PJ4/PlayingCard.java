@@ -205,7 +205,7 @@ class Decks {
         // implement this method!
         List<Card> toDeal = new ArrayList<Card>();
         if (numberCards > this.gameDecks.size()) {
-            throw new PlayingCardException("Not enough cards");
+            throw new PlayingCardException("Not enough cards to deal");
         }
         while (toDeal.size() < numberCards) {
             // Remove from back, add to front (to match README.txt)
