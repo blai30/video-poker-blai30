@@ -127,6 +127,8 @@ class Decks {
     public Decks(boolean withJokers)
     {
         // implement this method!
+        this.numberDecks = 1;
+        this.withJokers = withJokers;
     }
 
 
@@ -140,6 +142,8 @@ class Decks {
     public Decks(int n, boolean withJokers)
     {
         // implement this method!
+        this.numberDecks = n;
+        this.withJokers = withJokers;
     }
 
 
