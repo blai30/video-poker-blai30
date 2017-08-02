@@ -129,6 +129,11 @@ class Decks {
         // implement this method!
         this.numberDecks = 1;
         this.withJokers = withJokers;
+        if (!this.withJokers) {
+            this.originalDecks = new ArrayList<Card>(this.numberDecks*52);
+        } else if (this.withJokers) {
+            this.originalDecks = new ArrayList<Card>(this.numberDecks*54);
+        }
     }
 
 
@@ -144,6 +149,11 @@ class Decks {
         // implement this method!
         this.numberDecks = n;
         this.withJokers = withJokers;
+        if (!this.withJokers) {
+            this.originalDecks = new ArrayList<Card>(this.numberDecks*52);
+        } else if (this.withJokers) {
+            this.originalDecks = new ArrayList<Card>(this.numberDecks*54);
+        }
     }
 
 
