@@ -148,6 +148,31 @@ class Decks {
         } else if (this.withJokers) {
             this.originalDecks = new ArrayList<Card>(this.numberDecks*54);
         }
+        // Deck
+        for (int i = 0; i < this.numberDecks; i++) {
+            // Suit
+            for (int j = 1; j <= 4; j++) {
+                // Rank
+                for (int k = 1; k <= 13; k++) {
+                    Card newCard;
+                    try {
+                        newCard = new Card(j, k);
+                        this.originalDecks.add(newCard);
+                    } catch (PlayingCardException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            // Add jokers if withJokers is true
+            if (this.withJokers) {
+                try {
+                    Card jokerCard = new Card(0, 1);
+                    this.originalDecks.add(jokerCard);
+                } catch (PlayingCardException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 
