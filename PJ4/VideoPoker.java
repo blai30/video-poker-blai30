@@ -118,6 +118,10 @@ public class VideoPoker {
     private void replace() {
         
     }
+    
+    private void updateBalance() {
+        
+    }
 
     public void play() 
     {
@@ -164,6 +168,8 @@ public class VideoPoker {
             System.out.println("Hand:" + this.playerHand);
             this.replace();
             System.out.println("Hand:" + this.playerHand);
+            this.checkHands();
+            this.updateBalance();
         }
     }
 
