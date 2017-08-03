@@ -105,6 +105,15 @@ public class VideoPoker {
      *
      *************************************************/
 
+    private void bet() {
+        Scanner input = new Scanner(System.in);
+        boolean canBet = true;
+        do {
+            System.out.print("Enter bet:");
+            this.playerBet = input.nextInt();
+            canBet = this.playerBet <= this.playerBalance;
+        } while (!canBet);
+    }
 
     public void play() 
     {
@@ -134,12 +143,12 @@ public class VideoPoker {
 
         // implement this method!
         this.showPayoutTable();
-        System.out.println("-----------------------------------");
         
         this.playerHand = new ArrayList<Card>();
         while (this.keepPlaying) {
+            System.out.println("-----------------------------------");
             System.out.println("Balance:$" + this.playerBalance);
-            
+            this.bet();
         }
     }
 
