@@ -124,7 +124,21 @@ public class VideoPoker {
     }
     
     private boolean playAgain() {
-        return true;
+        Scanner input = new Scanner(System.in);
+        boolean keepAsking = true;
+        boolean retData = true;
+        while (keepAsking) {
+            System.out.print(", one more game (y or n)?");
+            String response = input.next();
+            if (response.equalsIgnoreCase("y")) {
+                keepAsking = false;
+                retData = true;
+            } else if (response.equalsIgnoreCase("n")) {
+                keepAsking = false;
+                retData = false;
+            }
+        }
+        return retData;
     }
     
     private void askPayoutTable() {
