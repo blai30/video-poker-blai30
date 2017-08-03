@@ -114,6 +114,10 @@ public class VideoPoker {
             canBet = this.playerBet <= this.playerBalance;
         } while (!canBet);
     }
+    
+    private void replace() {
+        
+    }
 
     public void play() 
     {
@@ -157,6 +161,9 @@ public class VideoPoker {
             } catch (PlayingCardException e) {
                 e.printStackTrace();
             }
+            System.out.println("Hand:" + this.playerHand);
+            this.replace();
+            System.out.println("Hand:" + this.playerHand);
         }
     }
 
