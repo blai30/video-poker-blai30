@@ -131,7 +131,12 @@ public class VideoPoker {
      */
 
         // implement this method!
-
+        this.showPayoutTable();
+        System.out.println("-----------------------------------");
+        
+        this.playerHand = new ArrayList<Card>();
+        System.out.println("Balance:$" + this.playerBalance);
+        
     }
 
     /*************************************************
