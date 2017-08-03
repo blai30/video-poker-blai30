@@ -62,6 +62,8 @@ public class VideoPoker {
     private List<Card> playerHand;
     private int playerBalance;
     private int playerBet;
+    
+    private boolean keepPlaying = true;
 
     /** default constructor, set balance = startingBalance */
     public VideoPoker()
@@ -135,8 +137,10 @@ public class VideoPoker {
         System.out.println("-----------------------------------");
         
         this.playerHand = new ArrayList<Card>();
-        System.out.println("Balance:$" + this.playerBalance);
-        
+        while (this.keepPlaying) {
+            System.out.println("Balance:$" + this.playerBalance);
+            
+        }
     }
 
     /*************************************************
