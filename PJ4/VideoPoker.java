@@ -149,6 +149,14 @@ public class VideoPoker {
             System.out.println("-----------------------------------");
             System.out.println("Balance:$" + this.playerBalance);
             this.bet();
+            this.playerBalance -= this.playerBet;
+            this.oneDeck.reset();
+            this.oneDeck.shuffle();
+            try {
+                this.playerHand = new ArrayList<Card>(this.oneDeck.deal(5));
+            } catch (PlayingCardException e) {
+                e.printStackTrace();
+            }
         }
     }
 
