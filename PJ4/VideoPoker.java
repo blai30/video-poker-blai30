@@ -196,6 +196,7 @@ public class VideoPoker {
             System.out.print("\nYour balance:$" + this.playerBalance + ", ");
             if (this.playerBalance <= 0) {
                 this.keepPlaying = false;
+                System.out.print("insufficient balance");
             } else if (this.playAgain()) {
                 this.askPayoutTable();
             }
