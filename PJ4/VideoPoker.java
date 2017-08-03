@@ -142,7 +142,23 @@ public class VideoPoker {
     }
     
     private void askPayoutTable() {
-        
+        Scanner input = new Scanner(System.in);
+        boolean keepAsking = true;
+        boolean showTable = false;
+        while (keepAsking) {
+            System.out.print("Want to see payout table (y or n)");
+            String response = input.next();
+            if (response.equalsIgnoreCase("y")) {
+                keepAsking = false;
+                showTable = true;
+            } else if (response.equalsIgnoreCase("n")) {
+                keepAsking = false;
+                showTable = false;
+            }
+        }
+        if (showTable) {
+            this.showPayoutTable();
+        }
     }
 
     public void play() 
