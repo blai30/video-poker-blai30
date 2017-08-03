@@ -128,7 +128,7 @@ public class VideoPoker {
         boolean keepAsking = true;
         boolean retData = true;
         while (keepAsking) {
-            System.out.print(", one more game (y or n)?");
+            System.out.print("one more game (y or n)?");
             String response = input.next();
             if (response.equalsIgnoreCase("y")) {
                 keepAsking = false;
@@ -193,7 +193,7 @@ public class VideoPoker {
             this.checkHands();
             this.updateBalance();
             this.playerHand.clear();
-            System.out.print("\nYour balance:$" + this.playerBalance);
+            System.out.print("\nYour balance:$" + this.playerBalance + ", ");
             if (this.playerBalance <= 0) {
                 this.keepPlaying = false;
             } else if (this.playAgain()) {
