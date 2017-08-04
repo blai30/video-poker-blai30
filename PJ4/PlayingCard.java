@@ -127,7 +127,7 @@ class Decks {
     public Decks(boolean withJokers)
     {
         // implement this method!
-        this(1, withJokers);
+        this(1, false);
     }
 
 
@@ -142,24 +142,24 @@ class Decks {
     {
         // implement this method!
         this.numberDecks = n;
-        this.withJokers = withJokers;
-        if (!this.withJokers) {
+        this.withJokers = false;
+//        if (!this.withJokers) {
             this.originalDecks = new ArrayList<Card>(this.numberDecks*52);
-        } else if (this.withJokers) {
-            this.originalDecks = new ArrayList<Card>(this.numberDecks*54);
-        }
+//        } else if (this.withJokers) {
+//            this.originalDecks = new ArrayList<Card>(this.numberDecks*54);
+//        }
         // Deck
         for (int i = 0; i < this.numberDecks; i++) {
             // Add jokers if withJokers is true
-            if (this.withJokers) {
-                try {
-                    Card jokerCard = new Card(0, 1);
-                    this.originalDecks.add(jokerCard);
-                    this.originalDecks.add(jokerCard);
-                } catch (PlayingCardException e) {
-                    e.printStackTrace();
-                }
-            }
+//            if (this.withJokers) {
+//                try {
+//                    Card jokerCard = new Card(0, 1);
+//                    this.originalDecks.add(jokerCard);
+//                    this.originalDecks.add(jokerCard);
+//                } catch (PlayingCardException e) {
+//                    e.printStackTrace();
+//                }
+//            }
             // Suit
             for (int j = 1; j <= 4; j++) {
                 // Rank
