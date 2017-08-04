@@ -136,6 +136,7 @@ public class VideoPoker {
             } else if (response.equalsIgnoreCase("n")) {
                 keepAsking = false;
                 retData = false;
+                this.keepPlaying = false;
             }
         }
         return retData;
@@ -217,7 +218,7 @@ public class VideoPoker {
                 this.askPayoutTable();
             }
         }
-        System.out.println("Bye!");
+        System.out.println("\nBye!");
     }
 
     /*************************************************
