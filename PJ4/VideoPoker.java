@@ -126,7 +126,7 @@ public class VideoPoker {
         }
         
         if (this.multiplierIndex <= 8) {
-            System.out.println(goodHandTypes[this.multiplierIndex] + "!");
+            System.out.println(this.goodHandTypes[this.multiplierIndex] + "!");
         } else {
             System.out.println("Sorry, you lost!");
         }
