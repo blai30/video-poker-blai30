@@ -116,7 +116,23 @@ public class VideoPoker {
     }
     
     private void replace() {
-        
+        Scanner input = new Scanner(System.in);
+        boolean keepAsking = true;
+        while (keepAsking) {
+            keepAsking = false;
+            System.out.print("Enter positions of cards to replace (e.g. 1 4 5):");
+            String line = input.nextLine();
+            if (!line.isEmpty()) {
+                String[] split = line.split(" ");
+                if (split.length < 5) {
+                    for (int i = 0; i < split.length; i++) {
+                        Integer.parseInt(split[i]);
+                    }
+                } else {
+                    keepAsking = true;
+                }
+            }
+        }
     }
     
     private void updateBalance() {
