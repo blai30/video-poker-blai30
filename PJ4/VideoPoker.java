@@ -256,6 +256,8 @@ public class VideoPoker {
 //        }
         List<Card> sortRank = new ArrayList<Card>();
         List<Card> sortSuit = new ArrayList<Card>();
+        
+        // Sorts hand by rank first
         for (int i = 0; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 if (this.playerHand.get(j).getRank() == i) {
@@ -263,8 +265,18 @@ public class VideoPoker {
                 }
             }
         }
+        // Sort hand by suit if cards are same rank
+        for (int i = 0; i <= 13; i++) {
+            for (int j = 0; j <= 4; j++) {
+                for (int k = 0; k < 5; k++) {
+                    if (sortRank.get(k).getRank() == i && sortRank.get(k).getSuit() == j) {
+                        sortSuit.add(sortRank.get(k));
+                    }
+                }
+            }
+        }
         this.playerHand.clear();
-        this.playerHand = sortRank;
+        this.playerHand = sortSuit;
     }
     
     
