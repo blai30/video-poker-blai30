@@ -66,6 +66,7 @@ public class VideoPoker {
     private int playerBet;
     
     private boolean keepPlaying = true;
+    private int multiplierIndex = 9;
 
     /** default constructor, set balance = startingBalance */
     public VideoPoker()
@@ -100,6 +101,37 @@ public class VideoPoker {
     private void checkHands()
     {
         // implement this method!
+        if (this.royalFlush()) {
+            System.out.println("Royal Flush!");
+            this.multiplierIndex = 8;
+        } else if (this.straightFlush()) {
+            System.out.println("Straight Flush!");
+            this.multiplierIndex = 7;
+        } else if (this.fourOfAKind()) {
+            System.out.println("Four of a Kind!");
+            this.multiplierIndex = 6;
+        } else if (this.fullHouse()) {
+            System.out.println("Full House!");
+            this.multiplierIndex = 5;
+        } else if (this.flush()) {
+            System.out.println("Flush!");
+            this.multiplierIndex = 4;
+        } else if (this.straight()) {
+            System.out.println("Straight!");
+            this.multiplierIndex = 3;
+        } else if (this.threeOfAKind()) {
+            System.out.println("Three of a Kind!");
+            this.multiplierIndex = 2;
+        } else if (this.twoPairs()) {
+            System.out.println("Two Pairs!");
+            this.multiplierIndex = 1;
+        } else if (this.onePair()) {
+            System.out.println("One Pair!");
+            this.multiplierIndex = 0;
+        } else {
+            System.out.println("Sorry, you lost!");
+            this.multiplierIndex = 9;
+        }
     }
 
     /*************************************************
@@ -158,7 +190,9 @@ public class VideoPoker {
     }
     
     private void updateBalance() {
-        
+        if (this.multiplierIndex <= 8 && this.multiplierIndex >= 0) {
+            this.playerBalance += this.playerBet * this.multipliers[multiplierIndex];
+        }
     }
     
     private boolean playAgain() {
@@ -198,6 +232,44 @@ public class VideoPoker {
         if (showTable) {
             this.showPayoutTable();
         }
+    }
+    
+    
+    // Poker hands
+    private boolean royalFlush() {
+        return false;
+    }
+    
+    private boolean straightFlush() {
+        return false;
+    }
+    
+    private boolean fourOfAKind() {
+        return false;
+    }
+    
+    private boolean fullHouse() {
+        return false;
+    }
+    
+    private boolean flush() {
+        return false;
+    }
+    
+    private boolean straight() {
+        return false;
+    }
+    
+    private boolean threeOfAKind() {
+        return false;
+    }
+    
+    private boolean twoPairs() {
+        return false;
+    }
+    
+    private boolean onePair() {
+        return false;
     }
 
     public void play() 
