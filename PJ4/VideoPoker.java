@@ -234,26 +234,7 @@ public class VideoPoker {
     }
     
     private void sortHand() {
-//        Card tempCardRank = null;
-//        Card tempCardSuit = null;
-//        for (int i = 0; i < this.playerHand.size(); i++) {
-//            for (int j = i; j < this.playerHand.size(); j++) {
-//                if (j + 1 < this.playerHand.size()) {
-//                    if (this.playerHand.get(j).getRank() > this.playerHand.get(j+1).getRank()) {
-//                        tempCardRank = this.playerHand.get(j);
-//                        this.playerHand.add(j, this.playerHand.remove(j+1));
-//                        this.playerHand.add(j+1, tempCardRank);
-//                        tempCardRank = null;
-//                    }
-//                    if (this.playerHand.get(j).getSuit() > this.playerHand.get(j+1).getSuit()) {
-//                        tempCardSuit = this.playerHand.get(j);
-//                        this.playerHand.add(j, this.playerHand.remove(j+1));
-//                        this.playerHand.add(j+1, tempCardSuit);
-//                        tempCardSuit = null;
-//                    }
-//                }
-//            }
-//        }
+        // Temporary hands for sorted cards
         List<Card> sortRank = new ArrayList<Card>();
         List<Card> sortSuit = new ArrayList<Card>();
         
@@ -265,6 +246,7 @@ public class VideoPoker {
                 }
             }
         }
+        
         // Sort hand by suit if cards are same rank
         for (int i = 0; i <= 13; i++) {
             for (int j = 0; j <= 4; j++) {
@@ -275,6 +257,8 @@ public class VideoPoker {
                 }
             }
         }
+        
+        // Replace old hand with fully sorted hand
         this.playerHand.clear();
         this.playerHand = sortSuit;
     }
