@@ -147,6 +147,7 @@ public class VideoPoker {
             this.playerBet = input.nextInt();
             canBet = this.playerBet <= this.playerBalance && this.playerBet > 0;
         } while (!canBet);
+        this.playerBalance -= this.playerBet;
     }
     
     private void replace() {
@@ -306,7 +307,6 @@ public class VideoPoker {
             System.out.println("-----------------------------------");
             System.out.println("Balance:$" + this.playerBalance);
             this.bet();
-            this.playerBalance -= this.playerBet;
             this.oneDeck.reset();
             this.oneDeck.shuffle();
             try {
