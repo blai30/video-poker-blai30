@@ -104,35 +104,31 @@ public class VideoPoker {
         this.multiplierIndex = 9;
         
         if (this.royalFlush()) {
-            System.out.println("Royal Flush!");
             this.multiplierIndex = 8;
         } else if (this.straightFlush()) {
-            System.out.println("Straight Flush!");
             this.multiplierIndex = 7;
         } else if (this.fourOfAKind()) {
-            System.out.println("Four of a Kind!");
             this.multiplierIndex = 6;
         } else if (this.fullHouse()) {
-            System.out.println("Full House!");
             this.multiplierIndex = 5;
         } else if (this.flush()) {
-            System.out.println("Flush!");
             this.multiplierIndex = 4;
         } else if (this.straight()) {
-            System.out.println("Straight!");
             this.multiplierIndex = 3;
         } else if (this.threeOfAKind()) {
-            System.out.println("Three of a Kind!");
             this.multiplierIndex = 2;
         } else if (this.twoPairs()) {
-            System.out.println("Two Pairs!");
             this.multiplierIndex = 1;
         } else if (this.onePair()) {
-            System.out.println("One Pair!");
             this.multiplierIndex = 0;
         } else {
-            System.out.println("Sorry, you lost!");
             this.multiplierIndex = 9;
+        }
+        
+        if (this.multiplierIndex <= 8) {
+            System.out.println(goodHandTypes[this.multiplierIndex] + "!");
+        } else {
+            System.out.println("Sorry, you lost!");
         }
     }
 
