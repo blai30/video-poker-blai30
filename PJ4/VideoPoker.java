@@ -1,5 +1,7 @@
 package PJ4;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * Ref: http://en.wikipedia.org/wiki/Video_poker
@@ -123,10 +125,9 @@ public class VideoPoker {
             keepAsking = false;
             // Copy of user's hand
             List handBackup = new ArrayList<Card>(this.playerHand);
-            
             System.out.print("Enter positions of cards to replace (e.g. 1 4 5):");
             String line = input.nextLine();
-            
+            // Remove cards
             if (!line.isEmpty()) {
                 String[] split = line.trim().split("\\s+");
                 if (split.length <= 5 && split.length > 0) {
@@ -143,6 +144,14 @@ public class VideoPoker {
                     }
                 } else {
                     keepAsking = true;
+                }
+            }
+            // Draw new cards from deck after removing selected cards
+            if (this.playerHand.size() < 5) {
+                try {
+                    this.playerHand.addAll(this.oneDeck.deal(5 - this.playerHand.size()));
+                } catch (PlayingCardException e) {
+                    e.printStackTrace();
                 }
             }
         }
