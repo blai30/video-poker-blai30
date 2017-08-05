@@ -118,11 +118,15 @@ public class VideoPoker {
     private void replace() {
         Scanner input = new Scanner(System.in);
         boolean keepAsking = true;
-        List handBackup = new ArrayList<Card>(this.playerHand);
+        
         while (keepAsking) {
             keepAsking = false;
+            // Copy of user's hand
+            List handBackup = new ArrayList<Card>(this.playerHand);
+            
             System.out.print("Enter positions of cards to replace (e.g. 1 4 5):");
             String line = input.nextLine();
+            
             if (!line.isEmpty()) {
                 String[] split = line.trim().split("\\s+");
                 if (split.length <= 5 && split.length > 0) {
@@ -133,14 +137,13 @@ public class VideoPoker {
                             this.playerHand.remove(cardPosition);
                         }
                     } catch (IndexOutOfBoundsException e) {
+                        // If user enters something like "4 20" then the 4th card is recovered
                         keepAsking = true;
                         this.playerHand = handBackup;
                     }
                 } else {
                     keepAsking = true;
                 }
-            } else if (line.isEmpty()) {
-                return;
             }
         }
     }
