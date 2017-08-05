@@ -125,7 +125,7 @@ public class VideoPoker {
             String line = input.nextLine();
             if (!line.isEmpty()) {
                 String[] split = line.trim().split("\\s+");
-                if (split.length < 5) {
+                if (split.length <= 5 && split.length > 0) {
                     try {
                         for (int i = 0; i < split.length; i++) {
                             // Offset by 1 and i (card position changes each iteration)
