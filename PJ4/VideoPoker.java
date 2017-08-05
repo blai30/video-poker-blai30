@@ -111,7 +111,7 @@ public class VideoPoker {
         do {
             System.out.print("Enter bet:");
             this.playerBet = input.nextInt();
-            canBet = this.playerBet <= this.playerBalance;
+            canBet = this.playerBet <= this.playerBalance && this.playerBet > 0;
         } while (!canBet);
     }
     
