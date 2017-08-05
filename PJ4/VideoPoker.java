@@ -264,7 +264,7 @@ public class VideoPoker {
     }
     
     
-    // Poker hands
+    // Poker hands //////////////////////////////////////////
     private boolean royalFlush() {
         return false;
     }
@@ -300,6 +300,7 @@ public class VideoPoker {
     private boolean onePair() {
         return false;
     }
+    /////////////////////////////////////////////////////////
 
     public void play() 
     {
@@ -342,6 +343,7 @@ public class VideoPoker {
             } catch (PlayingCardException e) {
                 e.printStackTrace();
             }
+            this.sortHand();
             System.out.println("Hand:" + this.playerHand);
             this.replace();
             this.sortHand();
