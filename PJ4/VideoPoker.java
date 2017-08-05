@@ -101,6 +101,8 @@ public class VideoPoker {
     private void checkHands()
     {
         // implement this method!
+        this.multiplierIndex = 9;
+        
         if (this.royalFlush()) {
             System.out.println("Royal Flush!");
             this.multiplierIndex = 8;
