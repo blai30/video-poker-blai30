@@ -283,7 +283,24 @@ public class VideoPoker {
             }
         }
         
-        // Ace-high straight
+        // Find ace
+        for (int i = 0; i < 5; i++) {
+            if (this.playerHand.get(i).getRank() == 1) {
+                ace = true;
+                break;
+            }
+        }
+        
+        // Straight
+        for (int i = 9; i <= 13; i++) {
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
+                        
+                    }
+                }
+            }
+        }
         
         
         return false;
