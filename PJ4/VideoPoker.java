@@ -292,12 +292,12 @@ public class VideoPoker {
         
         // Straight
         for (int i = 10; i <= 13; i++) {
+            firstPointer:
             for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
-                    if (this.playerHand.get(j).getRank() == i) {
-                        if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
-                            cardCounter++;
-                        }
+                    if (this.playerHand.get(j).getRank() == i && this.playerHand.get(k).getRank() == i + 1) {
+                        cardCounter++;
+                        break firstPointer;
                     }
                 }
             }
@@ -326,17 +326,15 @@ public class VideoPoker {
         
         // Straight
         for (int i = 1; i <= 13; i++) {
+            firstPointer:
             for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
-                    if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
+                    if (this.playerHand.get(j).getRank() == i && this.playerHand.get(k).getRank() == i + 1) {
                         cardCounter++;
+                        break firstPointer;
                     }
                 }
             }
-            if (cardCounter == 5) {
-                break;
-            }
-            cardCounter = 1;
         }
         
         flush = suitCounter == 5;
@@ -418,11 +416,14 @@ public class VideoPoker {
         // 5 cards of consecutive rank
         int cardCounter = 1;
         
-        for (int j = 0; j < 5; j++) {
-            for (int k = 0; k < 5; k++) {
-                if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
-                    cardCounter++;
-                    break;
+        for (int i = 1; i <= 13; i++) {
+            firstPointer:
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    if (this.playerHand.get(j).getRank() == i && this.playerHand.get(k).getRank() == i + 1) {
+                        cardCounter++;
+                        break firstPointer;
+                    }
                 }
             }
         }
