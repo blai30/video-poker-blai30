@@ -435,10 +435,15 @@ public class VideoPoker {
         for (int i = 0; i < 5; i++) {
             if (this.playerHand.get(i).getRank() == 1) {
                 ace = true;
+                break;
             }
         }
         
-        straight = cardCounter == 5;
+        if (ace) {
+            straight = cardCounter == 4;
+        } else {
+            straight = cardCounter == 5;
+        }
         return (straight) || (straight && ace);
     }
     
@@ -535,7 +540,7 @@ public class VideoPoker {
         
         this.playerHand = new ArrayList<Card>();
         while (this.keepPlaying) {
-            System.out.println("-----------------------------------");
+            System.out.println("-----------------------------------\n");
             System.out.println("Balance:\t$" + this.playerBalance);
             this.placeBet();
             
