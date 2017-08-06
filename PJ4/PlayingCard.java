@@ -31,7 +31,7 @@ class PlayingCardException extends Exception {
 class Card {
 	
     /* constant suits and ranks */
-    static final String[] Suit = {"Joker","Clubs", "Diamonds", "Hearts", "Spades" };
+    static final String[] Suit = {"Joker", "Clubs", "Diamonds", "Hearts", "Spades"};
     static final String[] Rank = {"","A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 
     /* Data field of a card: rank and suit */
