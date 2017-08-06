@@ -266,6 +266,16 @@ public class VideoPoker {
     
     // Poker hands //////////////////////////////////////////
     private boolean royalFlush() {
+        int suitTracker = this.playerHand.get(0).getSuit();
+        int suitCounter = 1;
+        for (int i = 1; i < this.playerHand.size(); i++) {
+            if (this.playerHand.get(i).getSuit() == suitTracker) {
+                suitCounter++;
+            }
+        }
+        if (suitCounter == 5) {
+            
+        }
         return false;
     }
     
@@ -282,7 +292,14 @@ public class VideoPoker {
     }
     
     private boolean flush() {
-        return false;
+        int suitTracker = this.playerHand.get(0).getSuit();
+        int suitCounter = 1;
+        for (int i = 1; i < this.playerHand.size(); i++) {
+            if (this.playerHand.get(i).getSuit() == suitTracker) {
+                suitCounter++;
+            }
+        }
+        return suitCounter == 5;
     }
     
     private boolean straight() {
