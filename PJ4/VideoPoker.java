@@ -346,14 +346,15 @@ public class VideoPoker {
         // Four cards in the hand have same rank
         int rankCounter = 0;
         
+        outerLoop:
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 if (this.playerHand.get(j).getRank() == i) {
                     rankCounter++;
+                    if (rankCounter == 4) {
+                        break outerLoop;
+                    }
                 }
-            }
-            if (rankCounter == 4) {
-                break;
             }
             rankCounter = 0;
         }
@@ -435,14 +436,15 @@ public class VideoPoker {
         // Three cards in the hand have same rank
         int rankCounter = 0;
         
+        outerLoop:
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 if (this.playerHand.get(j).getRank() == i) {
                     rankCounter++;
+                    if (rankCounter == 3) {
+                        break outerLoop;
+                    }
                 }
-            }
-            if (rankCounter == 3) {
-                break;
             }
             rankCounter = 0;
         }
@@ -459,10 +461,11 @@ public class VideoPoker {
             for (int j = 0; j < 5; j++) {
                 if (this.playerHand.get(j).getRank() == i) {
                     rankCounter++;
+                    if (rankCounter == 2) {
+                        pairCounter++;
+                        break;
+                    }
                 }
-            }
-            if (rankCounter == 2) {
-                pairCounter++;
             }
             rankCounter = 0;
         }
@@ -474,14 +477,15 @@ public class VideoPoker {
         // Two cards in hand have same rank
         int rankCounter = 0;
         
+        outerLoop:
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 if (this.playerHand.get(j).getRank() == i) {
                     rankCounter++;
+                    if (rankCounter == 2) {
+                        break outerLoop;
+                    }
                 }
-            }
-            if (rankCounter == 2) {
-                break;
             }
             rankCounter = 0;
         }
