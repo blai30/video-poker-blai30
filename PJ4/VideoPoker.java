@@ -418,18 +418,13 @@ public class VideoPoker {
         // 5 cards of consecutive rank
         int cardCounter = 1;
         
-        for (int i = 1; i <= 13; i++) {
-            for (int j = 0; j < 5; j++) {
-                for (int k = 0; k < 5; k++) {
-                    if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
-                        cardCounter++;
-                    }
+        for (int j = 0; j < 5; j++) {
+            for (int k = 0; k < 5; k++) {
+                if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
+                    cardCounter++;
+                    break;
                 }
             }
-            if (cardCounter == 5) {
-                break;
-            }
-            cardCounter = 1;
         }
         
         return cardCounter == 5;
