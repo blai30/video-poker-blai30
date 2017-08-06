@@ -280,7 +280,24 @@ public class VideoPoker {
     }
     
     private boolean straightFlush() {
-        return false;
+        // All cards must have same suit
+        int suitTracker = this.playerHand.get(0).getSuit();
+        int suitCounter = 1;
+        boolean flush = false;
+        
+        int cardCounter = 1;
+        boolean straight = false;
+        
+        for (int i = 0; i < 5; i++) {
+            if (this.playerHand.get(i).getSuit() == suitTracker) {
+                suitCounter++;
+            }
+        }
+        
+        flush = suitCounter == 5;
+        straight = cardCounter == 5;
+        
+        return flush && straight;
     }
     
     private boolean fourOfAKind() {
@@ -348,23 +365,23 @@ public class VideoPoker {
     }
     
     private boolean straight() {
-        int counter = 1;
+        int cardCounter = 1;
         
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
                     if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
-                        counter++;
+                        cardCounter++;
                     }
                 }
             }
-            if (counter == 5) {
+            if (cardCounter == 5) {
                 break;
             }
-            counter = 1;
+            cardCounter = 1;
         }
         
-        return counter == 5;
+        return cardCounter == 5;
     }
     
     private boolean threeOfAKind() {
