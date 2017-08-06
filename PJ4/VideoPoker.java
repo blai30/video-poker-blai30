@@ -339,7 +339,20 @@ public class VideoPoker {
     }
     
     private boolean twoPairs() {
-        return false;
+        int rankCounter = 0;
+        int pairCounter = 0;
+        for (int i = 1; i <= 13; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (this.playerHand.get(j).getRank() == i) {
+                    rankCounter++;
+                }
+            }
+            if (rankCounter == 2) {
+                pairCounter++;
+            }
+            rankCounter = 0;
+        }
+        return pairCounter == 2;
     }
     
     private boolean onePair() {
@@ -353,9 +366,7 @@ public class VideoPoker {
             if (rankCounter == 2) {
                 break;
             }
-            if (rankCounter < 2) {
-                rankCounter = 0;
-            }
+            rankCounter = 0;
         }
         return rankCounter == 2;
     }
