@@ -302,9 +302,6 @@ public class VideoPoker {
                 }
             }
         }
-        if (cardCounter < 4) {
-            cardCounter = 1;
-        }
         
         flush = suitCounter == 5;
         straight = cardCounter == 4;
