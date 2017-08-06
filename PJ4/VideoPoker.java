@@ -141,7 +141,7 @@ public class VideoPoker {
         Scanner input = new Scanner(System.in);
         boolean canBet = true;
         do {
-            System.out.print("Enter bet:");
+            System.out.print("Enter bet:\t$");
             this.playerBet = input.nextInt();
             canBet = this.playerBet <= this.playerBalance && this.playerBet > 0;
         } while (!canBet);
@@ -156,7 +156,7 @@ public class VideoPoker {
             keepAsking = false;
             // Copy of user's hand
             List handBackup = new ArrayList<Card>(this.playerHand);
-            System.out.print("Enter positions of cards to replace (e.g. 1 4 5):");
+            System.out.print("Enter positions of cards to replace (e.g. 1 4 5): ");
             String line = input.nextLine();
             // Remove cards
             if (!line.isEmpty()) {
@@ -199,7 +199,7 @@ public class VideoPoker {
         boolean keepAsking = true;
         boolean retData = true;
         while (keepAsking) {
-            System.out.print("one more game (y or n)?");
+            System.out.print("One more game (y or n)?: ");
             String response = input.next();
             if (response.equalsIgnoreCase("y")) {
                 keepAsking = false;
@@ -218,7 +218,7 @@ public class VideoPoker {
         boolean keepAsking = true;
         boolean showTable = false;
         while (keepAsking) {
-            System.out.print("Want to see payout table (y or n)");
+            System.out.print("Want to see payout table (y or n)?: ");
             String response = input.next();
             if (response.equalsIgnoreCase("y")) {
                 keepAsking = false;
@@ -526,7 +526,7 @@ public class VideoPoker {
         this.playerHand = new ArrayList<Card>();
         while (this.keepPlaying) {
             System.out.println("-----------------------------------");
-            System.out.println("Balance:$" + this.playerBalance);
+            System.out.println("Balance:\t$" + this.playerBalance);
             this.placeBet();
             
             this.oneDeck.reset();
@@ -547,13 +547,14 @@ public class VideoPoker {
             
             this.checkHands();
             this.updateBalance();
+            this.playerBet = 0;
             this.playerHand.clear();
             
-            System.out.print("\nYour balance:$" + this.playerBalance + ", ");
+            System.out.print("\nYour balance: $" + this.playerBalance + "\n");
             
             if (this.playerBalance <= 0) {
                 this.keepPlaying = false;
-                System.out.print("insufficient balance");
+                System.out.println("Insufficient balance");
             } else if (this.playAgain()) {
                 this.askPayoutTable();
             }
