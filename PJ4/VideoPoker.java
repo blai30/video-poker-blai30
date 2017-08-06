@@ -288,12 +288,14 @@ public class VideoPoker {
         int cardCounter = 1;
         boolean straight = false;
         
+        // Flush
         for (int i = 1; i < 5; i++) {
             if (this.playerHand.get(i).getSuit() == suitTracker) {
                 suitCounter++;
             }
         }
         
+        // Straight
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
