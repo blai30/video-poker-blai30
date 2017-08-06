@@ -284,7 +284,21 @@ public class VideoPoker {
     }
     
     private boolean fourOfAKind() {
-        return false;
+        int rankCounter = 0;
+        for (int i = 1; i <= 13; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (this.playerHand.get(j).getRank() == i) {
+                    rankCounter++;
+                }
+            }
+            if (rankCounter == 4) {
+                break;
+            }
+            if (rankCounter < 4) {
+                rankCounter = 0;
+            }
+        }
+        return rankCounter == 4;
     }
     
     private boolean fullHouse() {
