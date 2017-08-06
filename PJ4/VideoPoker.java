@@ -335,8 +335,10 @@ public class VideoPoker {
     }
     
     private boolean fullHouse() {
+        // Both three of a kind and one pair in a hand
         int rankCounter = 0;
         
+        // Three of a kind
         boolean triple = false;
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
@@ -351,6 +353,7 @@ public class VideoPoker {
             rankCounter = 0;
         }
         
+        // Pair
         boolean pair = false;
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
