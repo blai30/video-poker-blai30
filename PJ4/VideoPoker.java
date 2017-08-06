@@ -268,6 +268,24 @@ public class VideoPoker {
     private boolean royalFlush() {
         // Ace-high straight flush
         // All cards must have same suit and consecutive rank from 10 to A
+        int suitTracker = this.playerHand.get(0).getSuit();
+        int suitCounter = 1;
+        boolean flush = false;
+        
+        int cardCounter = 1;
+        boolean straight = false;
+        boolean ace = false;
+        
+        // Flush
+        for (int i = 1; i < 5; i++) {
+            if (this.playerHand.get(i).getSuit() == suitTracker) {
+                suitCounter++;
+            }
+        }
+        
+        // Ace-high straight
+        
+        
         return false;
     }
     
