@@ -315,6 +315,22 @@ public class VideoPoker {
     }
     
     private boolean onePair() {
+        int rankTracker;
+        int rankCounter = 0;
+        for (int i = 1; i <= 13; i++) {
+            rankTracker = i;
+            for (int j = 0; j < 5; j++) {
+                if (this.playerHand.get(j).getRank() == rankTracker) {
+                    rankCounter++;
+                }
+            }
+            if (rankCounter == 2) {
+                return true;
+            }
+            if (rankCounter < 2) {
+                rankCounter = 0;
+            }
+        }
         return false;
     }
     /////////////////////////////////////////////////////////
