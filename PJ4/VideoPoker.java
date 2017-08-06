@@ -288,15 +288,28 @@ public class VideoPoker {
         int cardCounter = 1;
         boolean straight = false;
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i < 5; i++) {
             if (this.playerHand.get(i).getSuit() == suitTracker) {
                 suitCounter++;
             }
         }
         
+        for (int i = 1; i <= 13; i++) {
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < 5; k++) {
+                    if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
+                        cardCounter++;
+                    }
+                }
+            }
+            if (cardCounter == 5) {
+                break;
+            }
+            cardCounter = 1;
+        }
+        
         flush = suitCounter == 5;
         straight = cardCounter == 5;
-        
         return flush && straight;
     }
     
@@ -355,7 +368,7 @@ public class VideoPoker {
         int suitTracker = this.playerHand.get(0).getSuit();
         int suitCounter = 1;
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 1; i < 5; i++) {
             if (this.playerHand.get(i).getSuit() == suitTracker) {
                 suitCounter++;
             }
