@@ -307,7 +307,21 @@ public class VideoPoker {
     }
     
     private boolean threeOfAKind() {
-        return false;
+        int rankCounter = 0;
+        for (int i = 1; i <= 13; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (this.playerHand.get(j).getRank() == i) {
+                    rankCounter++;
+                }
+            }
+            if (rankCounter == 3) {
+                break;
+            }
+            if (rankCounter < 3) {
+                rankCounter = 0;
+            }
+        }
+        return rankCounter == 3;
     }
     
     private boolean twoPairs() {
@@ -315,23 +329,21 @@ public class VideoPoker {
     }
     
     private boolean onePair() {
-        int rankTracker;
         int rankCounter = 0;
         for (int i = 1; i <= 13; i++) {
-            rankTracker = i;
             for (int j = 0; j < 5; j++) {
-                if (this.playerHand.get(j).getRank() == rankTracker) {
+                if (this.playerHand.get(j).getRank() == i) {
                     rankCounter++;
                 }
             }
             if (rankCounter == 2) {
-                return true;
+                break;
             }
             if (rankCounter < 2) {
                 rankCounter = 0;
             }
         }
-        return false;
+        return rankCounter == 2;
     }
     /////////////////////////////////////////////////////////
 
