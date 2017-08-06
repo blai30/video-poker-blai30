@@ -287,23 +287,28 @@ public class VideoPoker {
         for (int i = 0; i < 5; i++) {
             if (this.playerHand.get(i).getRank() == 1) {
                 ace = true;
-                break;
             }
         }
         
         // Straight
-        for (int i = 9; i <= 13; i++) {
+        for (int i = 10; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 for (int k = 0; k < 5; k++) {
-                    if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
-                        
+                    if (this.playerHand.get(j).getRank() == i) {
+                        if (this.playerHand.get(j).getRank() + 1 == this.playerHand.get(k).getRank()) {
+                            cardCounter++;
+                        }
                     }
                 }
             }
         }
+        if (cardCounter < 4) {
+            cardCounter = 1;
+        }
         
-        
-        return false;
+        flush = suitCounter == 5;
+        straight = cardCounter == 4;
+        return flush && straight && ace;
     }
     
     private boolean straightFlush() {
