@@ -353,22 +353,28 @@ public class VideoPoker {
             System.out.println("-----------------------------------");
             System.out.println("Balance:$" + this.playerBalance);
             this.bet();
+            
             this.oneDeck.reset();
             this.oneDeck.shuffle();
+            
             try {
                 this.playerHand = new ArrayList<Card>(this.oneDeck.deal(5));
             } catch (PlayingCardException e) {
                 e.printStackTrace();
             }
+            
             this.sortHand();
             System.out.println("Hand:" + this.playerHand);
             this.replace();
             this.sortHand();
             System.out.println("Hand:" + this.playerHand);
+            
             this.checkHands();
             this.updateBalance();
             this.playerHand.clear();
+            
             System.out.print("\nYour balance:$" + this.playerBalance + ", ");
+            
             if (this.playerBalance <= 0) {
                 this.keepPlaying = false;
                 System.out.print("insufficient balance");
