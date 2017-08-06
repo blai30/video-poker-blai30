@@ -416,6 +416,8 @@ public class VideoPoker {
     private boolean straight() {
         // 5 cards of consecutive rank
         int cardCounter = 1;
+        boolean straight = false;
+        boolean ace = false;
         
         for (int i = 1; i <= 13; i++) {
             firstPointer:
@@ -429,7 +431,15 @@ public class VideoPoker {
             }
         }
         
-        return cardCounter == 5;
+        // Find ace
+        for (int i = 0; i < 5; i++) {
+            if (this.playerHand.get(i).getRank() == 1) {
+                ace = true;
+            }
+        }
+        
+        straight = cardCounter == 5;
+        return (straight) || (straight && ace);
     }
     
     private boolean threeOfAKind() {
@@ -540,17 +550,17 @@ public class VideoPoker {
             
             // Hand is sorted before printed
             this.sortHand();
-            System.out.println("Hand:" + this.playerHand);
+            System.out.println("Hand: " + this.playerHand);
             this.replaceHand();
             this.sortHand();
-            System.out.println("Hand:" + this.playerHand);
+            System.out.println("Hand: " + this.playerHand);
             
             this.checkHands();
             this.updateBalance();
             this.playerBet = 0;
             this.playerHand.clear();
             
-            System.out.print("\nYour balance: $" + this.playerBalance + "\n");
+            System.out.print("\nYour balance:\t$" + this.playerBalance + "\n");
             
             if (this.playerBalance <= 0) {
                 this.keepPlaying = false;
