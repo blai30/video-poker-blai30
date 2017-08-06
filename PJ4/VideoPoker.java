@@ -538,6 +538,7 @@ public class VideoPoker {
                 e.printStackTrace();
             }
             
+            // Hand is sorted before printed
             this.sortHand();
             System.out.println("Hand:" + this.playerHand);
             this.replaceHand();
