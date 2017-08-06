@@ -280,7 +280,7 @@ public class VideoPoker {
     }
     
     private boolean straightFlush() {
-        // All cards must have same suit
+        // All cards must have same suit and consecutive rank
         int suitTracker = this.playerHand.get(0).getSuit();
         int suitCounter = 1;
         boolean flush = false;
@@ -386,6 +386,7 @@ public class VideoPoker {
     }
     
     private boolean straight() {
+        // 5 cards of consecutive rank
         int cardCounter = 1;
         
         for (int i = 1; i <= 13; i++) {
@@ -406,6 +407,7 @@ public class VideoPoker {
     }
     
     private boolean threeOfAKind() {
+        // Three cards in the hand have same rank
         int rankCounter = 0;
         
         for (int i = 1; i <= 13; i++) {
@@ -424,6 +426,7 @@ public class VideoPoker {
     }
     
     private boolean twoPairs() {
+        // Two pairs of cards that have same rank
         int rankCounter = 0;
         int pairCounter = 0;
         
@@ -443,6 +446,7 @@ public class VideoPoker {
     }
     
     private boolean onePair() {
+        // Two cards in hand have same rank
         int rankCounter = 0;
         
         for (int i = 1; i <= 13; i++) {
