@@ -208,7 +208,7 @@ class Decks {
             throw new PlayingCardException("Not enough cards to deal");
         }
         while (toDeal.size() < numberCards) {
-            // Remove from back, add to front (to match README.txt)
+            // Remove from back, add to front
             toDeal.add(0, this.gameDecks.remove(this.gameDecks.size()-1));
         }
         return toDeal;
