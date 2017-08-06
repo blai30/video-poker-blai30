@@ -419,6 +419,7 @@ public class VideoPoker {
         boolean straight = false;
         boolean ace = false;
         
+        // Straight
         for (int i = 1; i <= 13; i++) {
             firstPointer:
             for (int j = 0; j < 5; j++) {
