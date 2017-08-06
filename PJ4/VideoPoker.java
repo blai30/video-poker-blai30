@@ -300,17 +300,49 @@ public class VideoPoker {
     }
     
     private boolean fullHouse() {
-        return false;
+        int rankCounter = 0;
+        
+        boolean triple = false;
+        for (int i = 1; i <= 13; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (this.playerHand.get(j).getRank() == i) {
+                    rankCounter++;
+                }
+            }
+            if (rankCounter == 3) {
+                triple = true;
+                break;
+            }
+            rankCounter = 0;
+        }
+        
+        boolean pair = false;
+        for (int i = 1; i <= 13; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (this.playerHand.get(j).getRank() == i) {
+                    rankCounter++;
+                }
+            }
+            if (rankCounter == 2) {
+                pair = true;
+                break;
+            }
+            rankCounter = 0;
+        }
+        
+        return triple && pair;
     }
     
     private boolean flush() {
         int suitTracker = this.playerHand.get(0).getSuit();
         int suitCounter = 1;
+        
         for (int i = 1; i < this.playerHand.size(); i++) {
             if (this.playerHand.get(i).getSuit() == suitTracker) {
                 suitCounter++;
             }
         }
+        
         return suitCounter == 5;
     }
     
@@ -320,6 +352,7 @@ public class VideoPoker {
     
     private boolean threeOfAKind() {
         int rankCounter = 0;
+        
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 if (this.playerHand.get(j).getRank() == i) {
@@ -331,12 +364,14 @@ public class VideoPoker {
             }
             rankCounter = 0;
         }
+        
         return rankCounter == 3;
     }
     
     private boolean twoPairs() {
         int rankCounter = 0;
         int pairCounter = 0;
+        
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 if (this.playerHand.get(j).getRank() == i) {
@@ -348,11 +383,13 @@ public class VideoPoker {
             }
             rankCounter = 0;
         }
+        
         return pairCounter == 2;
     }
     
     private boolean onePair() {
         int rankCounter = 0;
+        
         for (int i = 1; i <= 13; i++) {
             for (int j = 0; j < 5; j++) {
                 if (this.playerHand.get(j).getRank() == i) {
@@ -364,6 +401,7 @@ public class VideoPoker {
             }
             rankCounter = 0;
         }
+        
         return rankCounter == 2;
     }
     /////////////////////////////////////////////////////////
