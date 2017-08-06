@@ -294,9 +294,7 @@ public class VideoPoker {
             if (rankCounter == 4) {
                 break;
             }
-            if (rankCounter < 4) {
-                rankCounter = 0;
-            }
+            rankCounter = 0;
         }
         return rankCounter == 4;
     }
@@ -331,9 +329,7 @@ public class VideoPoker {
             if (rankCounter == 3) {
                 break;
             }
-            if (rankCounter < 3) {
-                rankCounter = 0;
-            }
+            rankCounter = 0;
         }
         return rankCounter == 3;
     }
