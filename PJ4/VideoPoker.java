@@ -137,7 +137,7 @@ public class VideoPoker {
      *
      *************************************************/
 
-    private void bet() {
+    private void placeBet() {
         Scanner input = new Scanner(System.in);
         boolean canBet = true;
         do {
@@ -148,7 +148,7 @@ public class VideoPoker {
         this.playerBalance -= this.playerBet;
     }
     
-    private void replace() {
+    private void replaceHand() {
         Scanner input = new Scanner(System.in);
         boolean keepAsking = true;
         
@@ -527,7 +527,7 @@ public class VideoPoker {
         while (this.keepPlaying) {
             System.out.println("-----------------------------------");
             System.out.println("Balance:$" + this.playerBalance);
-            this.bet();
+            this.placeBet();
             
             this.oneDeck.reset();
             this.oneDeck.shuffle();
@@ -540,7 +540,7 @@ public class VideoPoker {
             
             this.sortHand();
             System.out.println("Hand:" + this.playerHand);
-            this.replace();
+            this.replaceHand();
             this.sortHand();
             System.out.println("Hand:" + this.playerHand);
             
